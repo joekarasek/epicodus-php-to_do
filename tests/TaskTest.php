@@ -6,7 +6,7 @@
     */
 
     require_once "src/Task.php";
-    // require_once "src/Category.php";
+    require_once "src/Category.php";
 
     $server = 'mysql:host=localhost;dbname=to_do_test';
     $username = 'root';
