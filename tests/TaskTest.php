@@ -174,23 +174,25 @@
         function testDeleteTask()
         {
             //Arrange
-            $description = "Wash the dog";
+            $name = "Work stuff";
             $id = 1;
-            $test_task = new Task($description, $id);
-            $test_task->save();
+            $test_category = new Category($name, $id);
+            $test_category->save();
 
-            $description2 = "Water the lawn";
+            $description = "File reports";
             $id2 = 2;
-            $test_task2 = new Task($description2, $id2);
-            $test_task2->save();
+            $test_task = new Task($description, $id2);
+            $test_task->save();
 
 
             //Act
+            $test_task->addCategory($test_category);
             $test_task->delete();
 
             //Assert
-            $this->assertEquals([$test_task2], Task::getAll());
+            $this->assertEquals([], $test_category->getTasks());
         }
+
 
         function testAddCategory()
         {
